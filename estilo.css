@@ -1,102 +1,146 @@
-*{
+* {
     margin: 0;
     padding: 0;
 }
-:root{
---cor-fundo1: rgb(223, 15, 195);
---cor-fundo2: rgb(39, 39, 221);
---cor-fonte: rgb(235, 30, 15);
---cor-hover: rgb(204, 164, 223);
 
+.rodape {
+    text-align: center;
 }
-a{
+
+:root {
+    --cor-fundo: rgb(22, 43, 22);
+    --cor-fonte: white;
+    --cor-hover: rgb(19, 19, 107);
+}
+
+a {
     text-decoration: none;
 }
-ul{
-    list-style: none;
+
+ul {
+    width: 100%;
+    height: 60px;
 }
-.header{
-background-color: var(--cor-fundo1);
-position: sticky;
-top: 0;
-width: 100vw;
+
+.header {
+    background-color: var(--cor-fundo);
+    position: sticky;
+    top: 0;
+    width: 100%;
 }
-.logo{
-    display: inline-block;
+
+.logo {
+    display: inline;
 }
-#logo{
-    height: 10vh;
-    width: 16vw;
+
+#logo {
+    height: 70px;
+    width: 100px;
 }
-.nav{
+
+.nav {
     width: 100vw;
     height: 100vh;
     position: fixed;
-    background-color: var(--cor-fundo2);
+    background-color: var(--cor-fundo);
     overflow: hidden;
 }
-.menu{
-width: 100%;
-height: 60px;
-background-color: rgb(62, 71, 53);
-color: blanchedalmond;
-font-size: 30px;
-text-align: center;
+
+.side-menu:checked~nav {
+    max-height: 100%;
 }
-.conteudo_narco{
-    width: 100px;
+
+.side-menu:checked~.hamb .hamb-line {
+    background: transparent;
 }
-.rodape{
-    width: 100%;
-    text-align: center;
+
+.side-menu:checked~.hamb .hamb-line::before {
+    transform: rotate(-45deg);
+    top: 0;
 }
-@media screen and (min-width:768px){
-    .menu{
-        height: 100px;
-        background-color: mediumpurple;
-        color: navy;
-        font-size: 64px;
-        text-align: center;
-    }
-    .conteudo_narco{
-        display: flex;
+
+
+
+.side-menu:checked~.hamb .hamb-line::after {
+    transform: rotate(45deg);
+    top: 0;
 }
+
+.menu a {
+    display: block;
+    padding: 30px;
+    color: var(--cor-fonte);
 }
-.menu a:hover{
-background-color: black;
+
+.menu a:hover {
+    background-color: var(--cor-hover);
 }
-.nav{
+
+.nav {
     max-height: 0;
-    transition: max-height  .5s ease-out;
+    transition: max-height .5s ease-out;
 }
-.hamb{
+
+.hamb {
     cursor: pointer;
     float: right;
     padding: 35px 20px;
 }
-.hamb-line{
-    background-color: var(--cor-fonte);
+
+.hamb-line {
+    background-color: white;
     display: block;
     height: 2px;
     position: relative;
     width: 24px;
 }
+
 .hamb-line::before,
-.hamb-line::after{
-    background-color: var(--cor-fonte);
+.hamb-line::after {
+    background-color: white;
     content: '';
     display: block;
-    height: 100%;
+    height: 2px;
     position: absolute;
     transform: all .2s ease-out;
     width: 100%;
 }
-.hamb-line::before{
-top: 5px;
-}
-.hamb-line::after{
+
+.hamb-line::before {
     top: 5px;
-    }
-.side-menu{
+}
+
+.hamb-line::after {
+    top: -5px;
+}
+
+.side-menu {
     display: none;
+}
+
+
+@media screen and (min-width:820px) {
+    .nav {
+        max-height: none;
+        top: 0;
+        position: relative;
+        float: right;
+        width: fit-content;
+        background-color: transparent;
+    }
+
+    .menu li {
+        float: left;
+    }
+
+    .menu a:hover {
+        background-color: transparent;
+    }
+    .hamb{
+        display: none;
+    }
+
+}
+
+@media screen and (min-width:1028px) {
 }
